@@ -48,6 +48,7 @@ import { sanitizeTerminalText } from './utils/terminal-sanitize';
 import { fetchAccountEmail } from './utils/usage';
 import { prefetchUsageDataIfNeeded } from './utils/usage-prefetch';
 import { ensureWindowsUtf8CodePage } from './utils/windows-code-page';
+import { ACCOUNT_EMAIL_WIDGET_TYPES } from './widgets/shared/account-email';
 
 // Captured before --config is parsed out of process.argv, so the dev reload
 // supervisor can relaunch with exactly the arguments it was started with
@@ -128,7 +129,7 @@ async function renderMultipleLines(data: StatusJSON, rawData: Record<string, unk
     const hasCompactionWidget = lines.some(line => line.some(item => item.type === 'compaction-counter'));
     const hasThinkingEffortWidget = lines.some(line => line.some(item => item.type === 'thinking-effort'));
     const hasSessionNameWidget = lines.some(line => line.some(item => item.type === 'session-name'));
-    const hasAccountEmailWidget = lines.some(line => line.some(item => item.type === 'claude-account-email'));
+    const hasAccountEmailWidget = lines.some(line => line.some(item => ACCOUNT_EMAIL_WIDGET_TYPES.has(item.type)));
     const needsTranscriptThinkingEffort = hasThinkingEffortWidget
         && (!data.effort || !('level' in data.effort));
     const requestedSpeedWindows = new Set<number>();

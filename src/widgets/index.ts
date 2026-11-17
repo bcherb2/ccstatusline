@@ -58,6 +58,7 @@ export { JjDeletionsWidget } from './JjDeletions';
 export { JjDescriptionWidget } from './JjDescription';
 export { JjRevisionWidget } from './JjRevision';
 export { ClaudeAccountEmailWidget } from './ClaudeAccountEmail';
+export { AccountLabelWidget } from './AccountLabel';
 export { InputSpeedWidget } from './InputSpeed';
 export { OutputSpeedWidget } from './OutputSpeed';
 export { TotalSpeedWidget } from './TotalSpeed';
